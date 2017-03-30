@@ -17,6 +17,8 @@ import javax.inject.Named;
 @RequestScoped
 public class ControladorTwitter implements Serializable {
 
+    private String status;
+
     @Inject
     private ClientTwitter clientTwitter;
 
@@ -39,8 +41,21 @@ public class ControladorTwitter implements Serializable {
         return "Profile";
     }
 
+    public String twitar() {
+        System.out.println(clientTwitter.twitar(status));
+        return null;
+    }
+
     public List<TwitterStatus> getTwitters() {
         return twitters;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }

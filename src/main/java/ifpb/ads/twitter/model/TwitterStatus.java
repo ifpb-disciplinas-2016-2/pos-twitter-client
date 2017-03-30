@@ -19,4 +19,6 @@ public interface TwitterStatus {
     String text();
 
     TwitterUser user();
+
+    TwitterEntity entities();
 }

@@ -7,6 +7,8 @@
     </h:head>
     <h:body>
         <h:form>
+            <h:inputText value="#{controladorTwitter.status}" />
+            <h:commandButton value="tweet" action="#{controladorTwitter.twitar()}" />
             <h:outputText value="#{controladorTwitter.timeline()}"/>
             <h:dataTable value="#{controladorTwitter.twitters}" var="tweet">
                 <h:column>#{tweet.user().name()}</h:column>
