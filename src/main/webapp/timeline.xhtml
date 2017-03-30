@@ -7,10 +7,10 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:inputText value="#{controladorTwitter.status}" />
-            <h:commandButton value="tweet" action="#{controladorTwitter.twitar()}" />
-            <h:outputText value="#{controladorTwitter.timeline()}"/>
-            <h:dataTable value="#{controladorTwitter.twitters}" var="tweet">
+            <h:inputText value="#{controllerTwitter.status}" />
+            <h:commandButton value="tweet" action="#{controllerTwitter.twitar()}" />
+            <h:outputText value="#{controllerTwitter.timeline()}"/>
+            <h:dataTable value="#{controllerTwitter.twitters}" var="tweet">
                 <h:column>#{tweet.user().name()}</h:column>
                 <h:column>#{tweet.text()}</h:column>
             </h:dataTable>

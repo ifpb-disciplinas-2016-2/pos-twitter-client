@@ -3,6 +3,7 @@ package ifpb.ads.twitter;
 
 import ifpb.ads.AuthenticatorException;
 import ifpb.ads.Pair;
+import ifpb.ads.twitter.oauth.Credentials;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.GeneralSecurityException;
@@ -40,6 +41,12 @@ public class AuthenticationHeaderTwitter {
         this.oAuthConsumerSecret = oAuthConsumerSecret;
         this.oAuthAccessToken = oAuthAccessToken;
         this.oAuthAccessTokenSecret = oAuthAccessTokenSecret;
+    }
+    public AuthenticationHeaderTwitter(Credentials credentials) {
+        this.oAuthConsumerKey = credentials.getAcess_key();
+        this.oAuthConsumerSecret = credentials.getAcess_secret();
+        this.oAuthAccessToken = credentials.getOauth_token();
+        this.oAuthAccessTokenSecret = credentials.getOauth_verifier();
     }
 
     public String header(List<Pair> urlParams, String method, String url) throws Exception {

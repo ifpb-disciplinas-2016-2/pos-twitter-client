@@ -1,4 +1,4 @@
-package ifpb.ads.twitter;
+package ifpb.ads.rest;
 
 import ifpb.ads.twitter.model.TwitterStatus;
 import java.io.Serializable;
@@ -13,27 +13,24 @@ import javax.inject.Named;
  * @mail ricardo.job@ifpb.edu.br
  * @since 29/03/2017, 10:40:53
  */
-@Named
+@Named("controllerTwitter")
 @RequestScoped
-public class ControladorTwitter implements Serializable {
+public class TwitterController implements Serializable {
 
     private String status;
 
-    @Inject
-    private ClientTwitter clientTwitter;
+//    @Inject
+    private TwitterClient clientTwitter = new TwitterClient();
 
-    public ClientTwitter getClientTwitter() {
+    private List<TwitterStatus> twitters = new ArrayList<>();
+
+    public TwitterClient getClientTwitter() {
         return clientTwitter;
     }
 
-    public void setClientTwitter(ClientTwitter clientTwitter) {
+    public void setClientTwitter(TwitterClient clientTwitter) {
         this.clientTwitter = clientTwitter;
     }
-
-    public String autorize() {
-        return clientTwitter.requestFirstToken();
-    }
-    private List<TwitterStatus> twitters = new ArrayList<>();
 
     public String timeline() {
         this.twitters = clientTwitter
